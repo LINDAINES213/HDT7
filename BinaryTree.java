@@ -10,6 +10,7 @@ public class BinaryTree<E>{
     protected BinaryTree<E> padre;
     protected BinaryTree<E> izquierdo, derecho;
     Nodo raiz;
+    private int key;
 
     public BinaryTree(){
         val = null;
@@ -135,8 +136,27 @@ public class BinaryTree<E>{
         }
     }
 
-    
-
+    public void insert(int key){ 
+        raiz = insertRec(raiz, key); 
+    }
+ 
+    /* A recursive function to
+       insert a new key in BST */
+    Nodo insertRec(Nodo raiz, int key){
+        if (raiz == null) {
+            raiz = new Nodo(key);
+            return raiz;
+        }
+ 
+        /* Otherwise, recur down the tree */
+        if (key < raiz.key)
+            raiz.izquierdo = insertRec(raiz.izquierdo, key);
+        else if (key > izquierdo.key)
+            raiz.derecho = insertRec(raiz.derecho, key);
+ 
+        /* return the (unchanged) node pointer */
+        return raiz;
+    }
 }
 
     

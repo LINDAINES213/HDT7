@@ -24,11 +24,10 @@ public class Vista {
         System.out.println("Hora de Empezar! Elija una opcion:");
         System.out.println("\n---------------------------------------------------------------------------------------------------------------------");
 
-        String menuPrincipal =  "1. Traduccion ingles - espanol\n" + 
-                                "2. Traduccion ingles - frances\n" + 
-                                "3. Agregar Vocabulario a Diccionario\n" +
-                                "4. Agregar / eliminar texto a traducir\n" +
-                                "5. Salir\n";
+        String menuPrincipal =  "1. Traduccion ingles o frances a espanol\n" + 
+                                "2. Agregar Vocabulario a Diccionario\n" +
+                                "3. Agregar / eliminar texto a traducir\n" +
+                                "4. Salir\n";
 
         System.out.println(menuPrincipal);
         opcion = sn.nextInt();

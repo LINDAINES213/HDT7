@@ -14,29 +14,25 @@ public class Main {
 
         int opcion = 0;
 
-        while (opcion != 5){
+        while (opcion != 4){
 
             opcion = vista.menu();
  
             if (opcion == 1){
  
-             
- 
+             archivo.leerTexto();
+
             } else if (opcion == 2){
- 
-             
- 
-            } else if (opcion == 3){
  
                 archivo.editarDiccionario();
                 archivo.imprimirDiccionario();
                  
-            } else if(opcion == 4){
+            } else if(opcion == 3){
 
                 archivo.editarTexto();
                 archivo.imprimirTexto();
 
-            } else if(opcion == 5){
+            } else if(opcion == 4){
 
                 vista.salir();
 
