@@ -8,7 +8,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         
-        Scanner sn = new Scanner(System.in);
         Archivo archivo = new Archivo();
         BinaryTree bt = new BinaryTree();
         Vista vista = new Vista();
