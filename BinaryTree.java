@@ -1,3 +1,8 @@
+/**
+* Clase BinaryTree que tiene todas funciones de un arbol binario.
+* @author Linda Ines Jimenez Vides
+* @version 8 de abril de 2022
+*/
 public class BinaryTree<E>{
 
     protected E val;
