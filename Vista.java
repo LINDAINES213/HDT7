@@ -39,6 +39,6 @@ public class Vista {
      * Metodo que muestra el mensaje de despedida
     */
     public void salir(){
-        System.out.println("Gracias por utilizar el traductor!");
+        System.out.println("Gracias por utilizar el traductor!\n");
     }
 }
