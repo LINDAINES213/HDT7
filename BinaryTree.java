@@ -2,18 +2,56 @@
 * Clase BinaryTree que tiene todas funciones de un arbol binario.
 * @author Linda Ines Jimenez Vides
 * @version 8 de abril de 2022
+* Referencia: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
 */
 public class BinaryTree<E>{
 
     protected E val;
     protected BinaryTree<E> padre;
     protected BinaryTree<E> izquierdo, derecho;
+    Nodo raiz;
 
     public BinaryTree(){
         val = null;
         padre = null;
         izquierdo = null;
         derecho = null;
+        raiz = null;
+    }
+
+    public void deleteKey(int key){
+        raiz = deleteRec(raiz, key);
+    }
+
+    Nodo deleteRec(Nodo raiz, int key){
+        if(raiz == null)
+            return raiz;
+
+        if (key < raiz.key)
+            raiz.izquierdo = deleteRec(raiz.izquierdo, key);
+        else if (key > raiz.key)
+            raiz.derecho = deleteRec(raiz.derecho, key);
+
+        else{
+            if(raiz.izquierdo == null)
+                return raiz;
+            else if (raiz.derecho == null)
+                return raiz.izquierdo;
+            raiz.key = minVal(raiz.derecho);
+
+            raiz.derecho = deleteRec(raiz.derecho, raiz.key);
+        }   
+        return raiz;
+    }
+
+    public int minVal(Nodo raiz){
+
+        int minv = raiz.key;
+        while(raiz.izquierdo != null){
+            minv = raiz.izquierdo.key;
+            raiz = raiz.izquierdo;
+        }
+        return minv;
     }
 
     public BinaryTree(E value){
@@ -33,6 +71,20 @@ public class BinaryTree<E>{
             derecho = new BinaryTree<E>();
         }
         setDerecho(derecho);
+    }
+
+    public void InOrder(){ 
+        InOrderRec(raiz); 
+    }
+ 
+    // A utility function to do inorder traversal of BST
+    public void InOrderRec(Nodo raiz)
+    {
+        if (raiz != null) {
+            InOrderRec(raiz.izquierdo);
+            System.out.print(raiz.key + " ");
+            InOrderRec(raiz.derecho);
+        }
     }
 
     public void setIzquierdo(BinaryTree<E> newIzquierdo){
