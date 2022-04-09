@@ -1,5 +1,8 @@
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 /**
 * Clase Archivo que lee y edita los archivos de texto y diccionario.
@@ -7,6 +10,9 @@ import java.util.Scanner;
 * @version 8 de abril de 2022
 */
 public class Archivo{
+
+    Map<String, String> diccionario = new HashMap<String, String>();
+    Map<String, String> dictionary = new HashMap<String, String>();
     
     public void leerDiccionario(){
         
@@ -58,6 +64,7 @@ public class Archivo{
             //.write para guardar en el archivo la infromacion de la publicacion
             System.out.println("Ingrese el vocabulario de la siguiente manera: ingles,espanol,frances:  ");
             String vocabulario = sn.nextLine();
+            diccionario.put(vocabulario, vocabulario);
             vocab.write(vocabulario);
             vocab.write("\n");
            
@@ -127,6 +134,27 @@ public class Archivo{
                 System.out.println(e.getMessage());
             }
         }
+
+        for (String key : diccionario.keySet()) {
+            dictionary.put(diccionario.get(key), key);
+        }
+
+        String frase = "";
+
+        StringBuilder phrase = new StringBuilder();
+        // Separamos las palabras por espacio e iteramos sobre cada una de ellas
+        for (String palabra : frase.split(" ")) {
+            String word = diccionario.get(palabra);
+            if (word == null) {
+                word = palabra;
+            }
+            // "concatenamos"
+            if (phrase.length() != 0) {
+                phrase.append(" ");
+            }
+            phrase.append(word);
+        }
+        System.out.println(phrase.toString());
     }
 
         public void imprimirDiccionario(){
